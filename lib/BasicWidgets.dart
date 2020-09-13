@@ -7,6 +7,7 @@ class BasicWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // TODO 标题外部传入
         appBar: AppBar(title: Text("Basic widgets")),
         body: Container(
           child: Center(

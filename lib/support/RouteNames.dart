@@ -10,4 +10,7 @@ class RouteNames {
   static const TextFieldWidget = "textField_widget";
   static const FormWidget = "form_widget";
   static const ProgressWidget = "progress_widget";
+
+  static const LayoutWidgetsRoute = "layout_widgets_route";
+  static const FlexWidget = "flex_widget";
 }

@@ -9,6 +9,8 @@ import 'package:flutter_playground/BasicWidgets/TapboxA.dart';
 import 'package:flutter_playground/BasicWidgets/TapboxB.dart';
 import 'package:flutter_playground/BasicWidgets/TapboxC.dart';
 import 'package:flutter_playground/BasicWidgets/TextFieldWidget.dart';
+import 'package:flutter_playground/LayoutWidgets.dart';
+import 'package:flutter_playground/LayoutWidgets/FlexWidget.dart';
 import 'package:flutter_playground/support/RouteNames.dart';
 
 void main() {
@@ -26,6 +28,9 @@ class MyApp extends StatelessWidget {
               title: "Home Page",
             ),
         RouteNames.BasicWidgetsRoute: (context) => BasicWidgets(),
+        RouteNames.LayoutWidgetsRoute: (context) => LayoutWidgets(),
+
+        // TODO 各个小页面的路由，目前还不知道如何规划路由
         RouteNames.CupertinoPage: (context) => CupertinoWidget(),
         RouteNames.WidgetLifeCycle: (context) => WidgetLifecycle(
               initValue: 9,
@@ -44,7 +49,8 @@ class MyApp extends StatelessWidget {
         RouteNames.PageElement: (context) => PageElement(),
         RouteNames.TextFieldWidget: (context) => TextFieldWidget(),
         RouteNames.FormWidget: (context) => FormWidget(),
-        RouteNames.ProgressWidget: (context) => ProgressWidget()
+        RouteNames.ProgressWidget: (context) => ProgressWidget(),
+        RouteNames.FlexWidget: (context) => FlexWidget()
       },
     );
   }
@@ -74,7 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.of(context).pushNamed(RouteNames.BasicWidgetsRoute);
               },
-            )
+            ),
+            RaisedButton(
+              child: Text("Layout widgets"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(RouteNames.LayoutWidgetsRoute);
+              },
+            ),
           ],
         ),
       ),
