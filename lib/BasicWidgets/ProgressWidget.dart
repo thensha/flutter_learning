@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ProgressRoute extends StatefulWidget {
-  ProgressRoute({Key key}) : super(key: key);
+class ProgressWidget extends StatefulWidget {
+  ProgressWidget({Key key}) : super(key: key);
 
   @override
-  _ProgressRouteState createState() => _ProgressRouteState();
+  _ProgressWidgetState createState() => _ProgressWidgetState();
 }
 
-class _ProgressRouteState extends State<ProgressRoute>
+class _ProgressWidgetState extends State<ProgressWidget>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
 

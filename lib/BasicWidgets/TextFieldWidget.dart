@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class FocusTestRoute extends StatefulWidget {
-  FocusTestRoute({Key key}) : super(key: key);
+class TextFieldWidget extends StatefulWidget {
+  TextFieldWidget({Key key}) : super(key: key);
 
   @override
-  _FocusTestRouteState createState() => _FocusTestRouteState();
+  _TextFieldWidgetState createState() => _TextFieldWidgetState();
 }
 
-class _FocusTestRouteState extends State<FocusTestRoute> {
+class _TextFieldWidgetState extends State<TextFieldWidget> {
   FocusNode focusNode1 = FocusNode();
   FocusNode focusNode2 = FocusNode();
   FocusNode focusScopeNode;

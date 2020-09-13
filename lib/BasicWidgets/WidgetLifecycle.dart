@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CounterLifecycle extends StatefulWidget {
-  const CounterLifecycle({Key key, this.initValue: 10});
+class WidgetLifecycle extends StatefulWidget {
+  const WidgetLifecycle({Key key, this.initValue: 10});
 
   final int initValue;
 
@@ -11,7 +11,7 @@ class CounterLifecycle extends StatefulWidget {
 
 // lift cycle
 // build放在State中而不是StatefulWidget的原因：数据传递便利性，开发灵活性
-class _CounterWidgetState extends State<CounterLifecycle> {
+class _CounterWidgetState extends State<WidgetLifecycle> {
   int _counter;
 
 // 当widget第一次插入widget树时会被调用
@@ -59,7 +59,7 @@ class _CounterWidgetState extends State<CounterLifecycle> {
 
 // widget重新构建时，Flutter framework会调用Widget.canUpdate检测树中同一位置的新旧节点判断是否需要更新
   @override
-  void didUpdateWidget(CounterLifecycle oldWidget) {
+  void didUpdateWidget(WidgetLifecycle oldWidget) {
     super.didUpdateWidget(oldWidget);
     print("didUpdateWidget");
   }

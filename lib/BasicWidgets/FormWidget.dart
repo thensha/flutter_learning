@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class FormTestRoute extends StatefulWidget {
-  FormTestRoute({Key key}) : super(key: key);
+class FormWidget extends StatefulWidget {
+  FormWidget({Key key}) : super(key: key);
 
   @override
-  _FormTestRouteState createState() => _FormTestRouteState();
+  _FormWidgetState createState() => _FormWidgetState();
 }
 
-class _FormTestRouteState extends State<FormTestRoute> {
+class _FormWidgetState extends State<FormWidget> {
   TextEditingController _unameController = TextEditingController();
   TextEditingController _pwdController = TextEditingController();
   GlobalKey _formKey = new GlobalKey<FormState>();

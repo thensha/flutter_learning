@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/CounterLifecycle.dart';
-import 'package:flutter_playground/CupertinoPage.dart';
-import 'package:flutter_playground/FormTestRoute.dart';
-import 'package:flutter_playground/PageElement.dart';
-import 'package:flutter_playground/ProgressRoute.dart';
-import 'package:flutter_playground/TapboxA.dart';
-import 'package:flutter_playground/TapboxB.dart';
-import 'package:flutter_playground/TapboxC.dart';
-import 'package:flutter_playground/FocusTestRoute.dart';
+import 'package:flutter_playground/BasicWidgets.dart';
+import 'package:flutter_playground/BasicWidgets/WidgetLifecycle.dart';
+import 'package:flutter_playground/BasicWidgets/CupertinoWidget.dart';
+import 'package:flutter_playground/BasicWidgets/FormWidget.dart';
+import 'package:flutter_playground/BasicWidgets/PageElement.dart';
+import 'package:flutter_playground/BasicWidgets/ProgressWidget.dart';
+import 'package:flutter_playground/BasicWidgets/TapboxA.dart';
+import 'package:flutter_playground/BasicWidgets/TapboxB.dart';
+import 'package:flutter_playground/BasicWidgets/TapboxC.dart';
+import 'package:flutter_playground/BasicWidgets/TextFieldWidget.dart';
 import 'package:flutter_playground/support/RouteNames.dart';
 
 void main() {
@@ -24,8 +25,9 @@ class MyApp extends StatelessWidget {
         RouteNames.IndexPage: (context) => MyHomePage(
               title: "Home Page",
             ),
-        RouteNames.CupertinoPage: (context) => CupertinoPage(),
-        RouteNames.WidgetLifeCycle: (context) => CounterLifecycle(
+        RouteNames.BasicWidgetsRoute: (context) => BasicWidgets(),
+        RouteNames.CupertinoPage: (context) => CupertinoWidget(),
+        RouteNames.WidgetLifeCycle: (context) => WidgetLifecycle(
               initValue: 9,
             ),
         RouteNames.TapBoxA: (context) => TapboxA(),
@@ -40,9 +42,9 @@ class MyApp extends StatelessWidget {
               },
             ),
         RouteNames.PageElement: (context) => PageElement(),
-        RouteNames.TextField: (context) => FocusTestRoute(),
-        RouteNames.FormField: (context) => FormTestRoute(),
-        RouteNames.ProgressRoute: (context) => ProgressRoute()
+        RouteNames.TextFieldWidget: (context) => TextFieldWidget(),
+        RouteNames.FormWidget: (context) => FormWidget(),
+        RouteNames.ProgressWidget: (context) => ProgressWidget()
       },
     );
   }
@@ -58,14 +60,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,76 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             RaisedButton(
-              child: Text("Go to Cupertino Page"),
+              child: Text("Base widgets"),
               onPressed: () {
-                Navigator.pushNamed(context, RouteNames.CupertinoPage);
+                Navigator.of(context).pushNamed(RouteNames.BasicWidgetsRoute);
               },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'You have clicked',
-                ),
-                FlatButton(
-                    onPressed: () {
-                      _incrementCounter();
-                    },
-                    child: Text("$_counter")),
-                Text("times.")
-              ],
-            ),
-            RaisedButton(
-              child: Text("Counter lifecycle"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.WidgetLifeCycle);
-              },
-            ),
-            RaisedButton(
-              child: Text("TapBoxA"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.TapBoxA);
-              },
-            ),
-            RaisedButton(
-              child: Text("TapBoxB"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.TapboxB);
-              },
-            ),
-            RaisedButton(
-              child: Text("TapBoxC"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.TapboxC);
-              },
-            ),
-            RaisedButton(
-              child: Text("To page element"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.PageElement);
-              },
-            ),
-            RaisedButton(
-              child: Text("TextField widget"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.TextField);
-              },
-            ),
-            RaisedButton(
-              child: Text("FormField widget"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.FormField);
-              },
-            ),
-            RaisedButton(
-              child: Text("Progress widget"),
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNames.ProgressRoute);
-              },
-            ),
+            )
           ],
         ),
       ),
