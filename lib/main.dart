@@ -3,6 +3,7 @@ import 'package:flutter_playground/CounterLifecycle.dart';
 import 'package:flutter_playground/CupertinoPage.dart';
 import 'package:flutter_playground/FormTestRoute.dart';
 import 'package:flutter_playground/PageElement.dart';
+import 'package:flutter_playground/ProgressRoute.dart';
 import 'package:flutter_playground/TapboxA.dart';
 import 'package:flutter_playground/TapboxB.dart';
 import 'package:flutter_playground/TapboxC.dart';
@@ -24,15 +25,24 @@ class MyApp extends StatelessWidget {
               title: "Home Page",
             ),
         RouteNames.CupertinoPage: (context) => CupertinoPage(),
-        RouteNames.CounterLifeCycle: (context) => CounterLifecycle(
+        RouteNames.WidgetLifeCycle: (context) => CounterLifecycle(
               initValue: 9,
             ),
         RouteNames.TapBoxA: (context) => TapboxA(),
-        RouteNames.TapboxB: (context) => TapboxB(),
-        RouteNames.TapboxC: (context) => TapboxC(),
+        RouteNames.TapboxB: (context) => TapboxB(
+              onChanged: (value) {
+                print("changed");
+              },
+            ),
+        RouteNames.TapboxC: (context) => TapboxC(
+              onChanged: (value) {
+                print("changed");
+              },
+            ),
         RouteNames.PageElement: (context) => PageElement(),
         RouteNames.TextField: (context) => FocusTestRoute(),
-        RouteNames.FormField: (context) => FormTestRoute()
+        RouteNames.FormField: (context) => FormTestRoute(),
+        RouteNames.ProgressRoute: (context) => ProgressRoute()
       },
     );
   }
@@ -89,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: Text("Counter lifecycle"),
               onPressed: () {
-                Navigator.pushNamed(context, RouteNames.CounterLifeCycle);
+                Navigator.pushNamed(context, RouteNames.WidgetLifeCycle);
               },
             ),
             RaisedButton(
@@ -117,15 +127,21 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             RaisedButton(
-              child: Text("TextField element"),
+              child: Text("TextField widget"),
               onPressed: () {
                 Navigator.pushNamed(context, RouteNames.TextField);
               },
             ),
             RaisedButton(
-              child: Text("FormField element"),
+              child: Text("FormField widget"),
               onPressed: () {
                 Navigator.pushNamed(context, RouteNames.FormField);
+              },
+            ),
+            RaisedButton(
+              child: Text("Progress widget"),
+              onPressed: () {
+                Navigator.pushNamed(context, RouteNames.ProgressRoute);
               },
             ),
           ],
